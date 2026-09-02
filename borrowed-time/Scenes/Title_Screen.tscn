@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b2c0f4deabims"]
+
+[ext_resource type="Script" uid="uid://bmqcctuvu3l3l" path="res://Scripts/Title_Screen.gd" id="1_67rak"]
+
+[node name="Title_Screen" type="Control" unique_id=1835219530]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_67rak")
+
+[node name="Game_Title_Label" type="Label" parent="." unique_id=1750616380]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -126.0
+offset_right = 126.0
+offset_bottom = 47.0
+grow_horizontal = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 34
+text = "Borrowed Time"
+
+[node name="Start_Button" type="Button" parent="." unique_id=274809730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -15.5
+offset_right = 49.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "START TIME"
+
+[node name="Quit_Button" type="Button" parent="." unique_id=485444037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 26.0
+offset_right = 46.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]

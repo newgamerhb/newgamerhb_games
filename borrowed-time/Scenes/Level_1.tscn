@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://v7083ffd5186"]
+
+[ext_resource type="PackedScene" uid="uid://dh8m53i1u88o3" path="res://Scenes/Player.tscn" id="1_oiua3"]
+[ext_resource type="PackedScene" uid="uid://detodboqe3urb" path="res://Scenes/Coin.tscn" id="2_i63mn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
+size = Vector2(1152, 48.75)
+
+[node name="Level_1" type="Node2D" unique_id=2047264345]
+
+[node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_oiua3")]
+position = Vector2(578, 401)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1441662192]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1996190984]
+position = Vector2(576, 622.375)
+shape = SubResource("RectangleShape2D_nvrpt")
+
+[node name="Coin" parent="StaticBody2D" unique_id=1249619984 instance=ExtResource("2_i63mn")]
+position = Vector2(41, 546)
