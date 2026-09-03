@@ -2,20 +2,45 @@
 
 [ext_resource type="PackedScene" uid="uid://dh8m53i1u88o3" path="res://Scenes/Player.tscn" id="1_oiua3"]
 [ext_resource type="PackedScene" uid="uid://detodboqe3urb" path="res://Scenes/Coin.tscn" id="2_i63mn"]
+[ext_resource type="PackedScene" uid="uid://drk6akjiwr01n" path="res://Scenes/Touch_Controls.tscn" id="3_vnunq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
-size = Vector2(1152, 48.75)
+size = Vector2(1152, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpg1s"]
+size = Vector2(49, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsmxr"]
+size = Vector2(56, 647.5)
 
 [node name="Level_1" type="Node2D" unique_id=2047264345]
 
 [node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_oiua3")]
 position = Vector2(578, 401)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1441662192]
+[node name="Control" type="Control" parent="." unique_id=514081623]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1996190984]
-position = Vector2(576, 622.375)
+[node name="Touch_Controls" parent="Control" unique_id=289757081 instance=ExtResource("3_vnunq")]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1441662192]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1996190984]
+position = Vector2(576, 623)
 shape = SubResource("RectangleShape2D_nvrpt")
 
-[node name="Coin" parent="StaticBody2D" unique_id=1249619984 instance=ExtResource("2_i63mn")]
+[node name="Coin" parent="Ground" unique_id=1249619984 instance=ExtResource("2_i63mn")]
 position = Vector2(41, 546)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=29991375]
+
+[node name="left_wall" type="CollisionShape2D" parent="Walls" unique_id=27219143]
+position = Vector2(-25.5, 324.5)
+shape = SubResource("RectangleShape2D_dpg1s")
+
+[node name="right_wall" type="CollisionShape2D" parent="Walls" unique_id=706760463]
+position = Vector2(1180, 324.25)
+shape = SubResource("RectangleShape2D_tsmxr")

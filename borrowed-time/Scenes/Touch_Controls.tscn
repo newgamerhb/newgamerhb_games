@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://drk6akjiwr01n"]
+
+[ext_resource type="Texture2D" uid="uid://54d7io6sqtt3" path="res://Icons/Touch_Controls/movement.svg" id="1_21ub8"]
+[ext_resource type="Script" uid="uid://72iv0rimevi6" path="res://Scripts/Touch_Controls.gd" id="1_k1qis"]
+
+[node name="Touch_Controls" type="CanvasLayer" unique_id=289757081]
+script = ExtResource("1_k1qis")
+
+[node name="Left" type="TouchScreenButton" parent="." unique_id=194428517]
+position = Vector2(58, 500)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("1_21ub8")
+action = "move_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="." unique_id=1392522742]
+position = Vector2(326.99997, 578.00006)
+rotation = -3.1415925
+scale = Vector2(0.099999994, 0.099999994)
+texture_normal = ExtResource("1_21ub8")
+action = "move_right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="." unique_id=1184470755]
+position = Vector2(1017, 500)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("1_21ub8")
+action = "move_up"
+visibility_mode = 1
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="released" from="Left" to="." method="_on_left_released"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="released" from="Right" to="." method="_on_right_released"]
+[connection signal="pressed" from="Jump" to="." method="_on_jump_pressed"]
+[connection signal="released" from="Jump" to="." method="_on_jump_released"]
