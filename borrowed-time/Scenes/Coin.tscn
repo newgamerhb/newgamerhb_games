@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://rf3s8u5lyfjs" path="res://Icons/coin.svg" id="2_somhs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nvrpt"]
-radius = 40.012497
+radius = 42.0
 
 [node name="Coin" type="Area2D" unique_id=1249619984]
 script = ExtResource("1_somhs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1133472860]
-scale = Vector2(0.1, 0.1)
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.053750005, 0.053750005)
 texture = ExtResource("2_somhs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1424024832]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_nvrpt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

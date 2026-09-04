@@ -5,18 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://drk6akjiwr01n" path="res://Scenes/Touch_Controls.tscn" id="3_vnunq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
-size = Vector2(1152, 50)
+size = Vector2(639, 75.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpg1s"]
-size = Vector2(49, 647)
+size = Vector2(49, 358)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsmxr"]
-size = Vector2(56, 647.5)
+size = Vector2(56, 359.75)
 
 [node name="Level_1" type="Node2D" unique_id=2047264345]
 
 [node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_oiua3")]
-position = Vector2(578, 401)
+position = Vector2(302, 219)
 
 [node name="Control" type="Control" parent="." unique_id=514081623]
 layout_mode = 3
@@ -29,18 +29,18 @@ offset_bottom = 40.0
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1441662192]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1996190984]
-position = Vector2(576, 623)
+position = Vector2(320, 321.75)
 shape = SubResource("RectangleShape2D_nvrpt")
 
 [node name="Coin" parent="Ground" unique_id=1249619984 instance=ExtResource("2_i63mn")]
-position = Vector2(41, 546)
+position = Vector2(608, 186)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=29991375]
 
 [node name="left_wall" type="CollisionShape2D" parent="Walls" unique_id=27219143]
-position = Vector2(-25.5, 324.5)
+position = Vector2(-25.5, 180)
 shape = SubResource("RectangleShape2D_dpg1s")
 
 [node name="right_wall" type="CollisionShape2D" parent="Walls" unique_id=706760463]
-position = Vector2(1180, 324.25)
+position = Vector2(669, 180.125)
 shape = SubResource("RectangleShape2D_tsmxr")
