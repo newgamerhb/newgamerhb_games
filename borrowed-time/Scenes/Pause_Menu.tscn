@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://duaqc2qp2775p"]
+
+[ext_resource type="Script" uid="uid://crjgdrmct6ox3" path="res://Scripts/Pause_Menu.gd" id="1_inwkf"]
+[ext_resource type="Texture2D" uid="uid://4mdpx55l0036" path="res://Art/pause_menu.png" id="1_umfhv"]
+
+[node name="Pause_Menu" type="CanvasLayer" unique_id=1764661271]
+process_mode = 3
+script = ExtResource("1_inwkf")
+
+[node name="Background_Darken" type="ColorRect" parent="." unique_id=49140690]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="pause_background" type="TextureRect" parent="." unique_id=150665858]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -115.0
+offset_right = 128.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_umfhv")
+
+[node name="Pause_Label" type="Label" parent="pause_background" unique_id=1409866823]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_top = -57.0
+offset_right = 28.0
+offset_bottom = -34.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Paused"
+
+[node name="MarginContainer" type="MarginContainer" parent="pause_background" unique_id=1485271798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_background/MarginContainer" unique_id=587202606]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Return" type="Button" parent="pause_background/MarginContainer/VBoxContainer" unique_id=344325347]
+layout_mode = 2
+text = "Return"
+
+[node name="Options" type="Button" parent="pause_background/MarginContainer/VBoxContainer" unique_id=1047199595]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="pause_background/MarginContainer/VBoxContainer" unique_id=1868136748]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="pause_background/MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="pause_background/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="pause_background/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

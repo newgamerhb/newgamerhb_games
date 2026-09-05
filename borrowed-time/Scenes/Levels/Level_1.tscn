@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://v7083ffd5186"]
 
-[ext_resource type="PackedScene" uid="uid://dh8m53i1u88o3" path="res://Scenes/Player.tscn" id="1_oiua3"]
-[ext_resource type="PackedScene" uid="uid://detodboqe3urb" path="res://Scenes/Coin.tscn" id="2_i63mn"]
-[ext_resource type="PackedScene" uid="uid://drk6akjiwr01n" path="res://Scenes/Touch_Controls.tscn" id="3_vnunq"]
+[ext_resource type="PackedScene" uid="uid://duaqc2qp2775p" path="res://Scenes/Pause_Menu.tscn" id="1_87l2y"]
+[ext_resource type="PackedScene" uid="uid://dh8m53i1u88o3" path="res://Scenes/Player.tscn" id="1_q8yj7"]
+[ext_resource type="PackedScene" uid="uid://drk6akjiwr01n" path="res://Scenes/Touch_Controls.tscn" id="2_87l2y"]
+[ext_resource type="PackedScene" uid="uid://detodboqe3urb" path="res://Scenes/Coin.tscn" id="3_qpfou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
 size = Vector2(639, 75.5)
@@ -15,7 +16,11 @@ size = Vector2(56, 359.75)
 
 [node name="Level_1" type="Node2D" unique_id=2047264345]
 
-[node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_oiua3")]
+[node name="Pause_Menu" parent="." unique_id=1764661271 instance=ExtResource("1_87l2y")]
+layer = 99
+visible = false
+
+[node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_q8yj7")]
 position = Vector2(302, 219)
 
 [node name="Control" type="Control" parent="." unique_id=514081623]
@@ -24,7 +29,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Touch_Controls" parent="Control" unique_id=289757081 instance=ExtResource("3_vnunq")]
+[node name="Touch_Controls" parent="Control" unique_id=289757081 instance=ExtResource("2_87l2y")]
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1441662192]
 
@@ -32,7 +37,7 @@ offset_bottom = 40.0
 position = Vector2(320, 321.75)
 shape = SubResource("RectangleShape2D_nvrpt")
 
-[node name="Coin" parent="Ground" unique_id=1249619984 instance=ExtResource("2_i63mn")]
+[node name="Coin" parent="Ground" unique_id=1249619984 instance=ExtResource("3_qpfou")]
 position = Vector2(608, 186)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=29991375]
