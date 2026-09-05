@@ -20,16 +20,10 @@ size = Vector2(56, 359.75)
 layer = 99
 visible = false
 
+[node name="Touch_Controls" parent="." unique_id=289757081 instance=ExtResource("2_87l2y")]
+
 [node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_q8yj7")]
 position = Vector2(302, 219)
-
-[node name="Control" type="Control" parent="." unique_id=514081623]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Touch_Controls" parent="Control" unique_id=289757081 instance=ExtResource("2_87l2y")]
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1441662192]
 

@@ -2,16 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://54d7io6sqtt3" path="res://Icons/Touch_Controls/movement.svg" id="1_21ub8"]
 [ext_resource type="Script" uid="uid://72iv0rimevi6" path="res://Scripts/Touch_Controls.gd" id="1_k1qis"]
+[ext_resource type="Texture2D" uid="uid://b0ywk7rwpcpfw" path="res://Icons/Touch_Controls/pause.svg" id="2_hcax0"]
 
 [node name="Touch_Controls" type="CanvasLayer" unique_id=289757081]
 script = ExtResource("1_k1qis")
+
+[node name="Pause" type="TouchScreenButton" parent="." unique_id=879379727]
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("2_hcax0")
+action = "stop"
 
 [node name="Left" type="TouchScreenButton" parent="." unique_id=194428517]
 position = Vector2(40.999996, 290.99997)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("1_21ub8")
 action = "move_left"
-visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="." unique_id=1392522742]
 position = Vector2(176, 329.00003)
@@ -19,7 +24,6 @@ rotation = -3.1415925
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("1_21ub8")
 action = "move_right"
-visibility_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="." unique_id=1184470755]
 position = Vector2(539, 288.99997)
@@ -27,8 +31,8 @@ rotation = 1.5707964
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("1_21ub8")
 action = "move_up"
-visibility_mode = 1
 
+[connection signal="released" from="Pause" to="." method="_on_pause_released"]
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="released" from="Left" to="." method="_on_left_released"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
