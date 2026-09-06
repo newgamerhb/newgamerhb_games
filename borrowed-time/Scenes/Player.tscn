@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dh8m53i1u88o3"]
 
 [ext_resource type="Script" uid="uid://ctw5eyhn0vpc4" path="res://Scripts/Player.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://cyf766vegt5k" path="res://Icons/player_icon.svg" id="2_kyqiw"]
-[ext_resource type="AudioStream" uid="uid://wrjgywfhw5p7" path="res://Audio/sfx/mixkit-player-jumping-in-a-video-game-2043.wav" id="3_gntrk"]
+[ext_resource type="Texture2D" uid="uid://dfr25vvhrp3yd" path="res://Icons/Player.png" id="2_gntrk"]
+[ext_resource type="AudioStream" uid="uid://wrjgywfhw5p7" path="res://Audio/sfx/jump.wav" id="3_gntrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
 size = Vector2(127, 129)
@@ -11,12 +11,12 @@ size = Vector2(127, 129)
 script = ExtResource("1_kyqiw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057151366]
+texture_filter = 1
 position = Vector2(-3.5762787e-07, 2.6226044e-06)
-scale = Vector2(0.08, 0.080000006)
-texture = ExtResource("2_kyqiw")
+texture = ExtResource("2_gntrk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1416180295]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_nvrpt")
 
 [node name="sfx_jump" type="AudioStreamPlayer" parent="." unique_id=1083929832]

@@ -1,18 +1,119 @@
-[gd_scene format=3 uid="uid://v7083ffd5186"]
+[gd_scene format=4 uid="uid://v7083ffd5186"]
 
 [ext_resource type="PackedScene" uid="uid://duaqc2qp2775p" path="res://Scenes/Pause_Menu.tscn" id="1_87l2y"]
 [ext_resource type="PackedScene" uid="uid://dh8m53i1u88o3" path="res://Scenes/Player.tscn" id="1_q8yj7"]
 [ext_resource type="PackedScene" uid="uid://drk6akjiwr01n" path="res://Scenes/Touch_Controls.tscn" id="2_87l2y"]
 [ext_resource type="PackedScene" uid="uid://detodboqe3urb" path="res://Scenes/Coin.tscn" id="3_qpfou"]
+[ext_resource type="Texture2D" uid="uid://cpaclfuga3yuw" path="res://Art/Sidescroller Shooter - Central City/Assets/Tiles.png" id="4_qpfou"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
-size = Vector2(639, 75.5)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybqp2"]
+texture = ExtResource("4_qpfou")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+2:4/0/terrain_set = 0
+2:4/0/terrain = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0/terrains_peering_bit/bottom_right_corner = 1
+3:4/0 = 0
+3:4/0/terrain_set = 0
+3:4/0/terrain = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0/terrains_peering_bit/bottom_right_corner = 1
+3:4/0/terrains_peering_bit/bottom_left_corner = 1
+4:4/0 = 0
+4:4/0/terrain_set = 0
+4:4/0/terrain = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0/terrains_peering_bit/bottom_left_corner = 1
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+2:5/0/terrain_set = 0
+2:5/0/terrain = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:5/0/terrains_peering_bit/bottom_right_corner = 1
+2:5/0/terrains_peering_bit/top_right_corner = 1
+3:5/0 = 0
+3:5/0/terrain_set = 0
+3:5/0/terrain = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0/terrains_peering_bit/bottom_right_corner = 1
+3:5/0/terrains_peering_bit/bottom_left_corner = 1
+3:5/0/terrains_peering_bit/top_left_corner = 1
+3:5/0/terrains_peering_bit/top_right_corner = 1
+4:5/0 = 0
+4:5/0/terrain_set = 0
+4:5/0/terrain = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:5/0/terrains_peering_bit/bottom_left_corner = 1
+4:5/0/terrains_peering_bit/top_left_corner = 1
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+2:6/0/terrain_set = 0
+2:6/0/terrain = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:6/0/terrains_peering_bit/top_right_corner = 1
+3:6/0 = 0
+3:6/0/terrain_set = 0
+3:6/0/terrain = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:6/0/terrains_peering_bit/top_left_corner = 1
+3:6/0/terrains_peering_bit/top_right_corner = 1
+4:6/0 = 0
+4:6/0/terrain_set = 0
+4:6/0/terrain = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:6/0/terrains_peering_bit/top_left_corner = 1
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpg1s"]
-size = Vector2(49, 358)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsmxr"]
-size = Vector2(56, 359.75)
+[sub_resource type="TileSet" id="TileSet_nvrpt"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 1
+terrain_set_0/terrain_0/name = "Floating 1"
+terrain_set_0/terrain_0/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Ground 0"
+terrain_set_0/terrain_1/color = Color(0.5019608, 0.9607843, 0.92941177, 1)
+sources/0 = SubResource("TileSetAtlasSource_ybqp2")
 
 [node name="Level_1" type="Node2D" unique_id=2047264345]
 
@@ -21,25 +122,20 @@ layer = 99
 visible = false
 
 [node name="Touch_Controls" parent="." unique_id=289757081 instance=ExtResource("2_87l2y")]
+visible = false
 
 [node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_q8yj7")]
 position = Vector2(302, 219)
 
-[node name="Ground" type="StaticBody2D" parent="." unique_id=1441662192]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1891101619]
+zoom = Vector2(1.5, 1.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1996190984]
-position = Vector2(320, 321.75)
-shape = SubResource("RectangleShape2D_nvrpt")
+[node name="Tile_Maps" type="Node2D" parent="." unique_id=1790323200]
 
-[node name="Coin" parent="Ground" unique_id=1249619984 instance=ExtResource("3_qpfou")]
+[node name="TileMapLayer" type="TileMapLayer" parent="Tile_Maps" unique_id=153432944]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray("AAAoABcAAAAEAAYAAAAoABYAAAAEAAUAAAAoABUAAAAEAAUAAAAoABQAAAAEAAQAAAAnABcAAAADAAYAAAAnABYAAAADAAUAAAAnABUAAAADAAUAAAAnABQAAAADAAQAAAAmABcAAAADAAYAAAAmABYAAAADAAUAAAAmABUAAAADAAUAAAAmABQAAAADAAQAAAAlABcAAAADAAYAAAAlABYAAAADAAUAAAAlABUAAAADAAUAAAAlABQAAAADAAQAAAAkABcAAAADAAYAAAAkABYAAAADAAUAAAAkABUAAAADAAUAAAAkABQAAAADAAQAAAAjABcAAAADAAYAAAAjABYAAAADAAUAAAAjABUAAAADAAUAAAAjABQAAAADAAQAAAAiABcAAAADAAYAAAAiABYAAAADAAUAAAAiABUAAAADAAUAAAAiABQAAAADAAQAAAAhABcAAAADAAYAAAAhABYAAAADAAUAAAAhABUAAAADAAUAAAAhABQAAAADAAQAAAAgABcAAAADAAYAAAAgABYAAAADAAUAAAAgABUAAAADAAUAAAAgABQAAAADAAQAAAAfABcAAAADAAYAAAAfABYAAAADAAUAAAAfABUAAAADAAUAAAAfABQAAAADAAQAAAAeABcAAAADAAYAAAAeABYAAAADAAUAAAAeABUAAAADAAUAAAAeABQAAAADAAQAAAAdABcAAAADAAYAAAAdABYAAAADAAUAAAAdABUAAAADAAUAAAAdABQAAAADAAQAAAAcABcAAAADAAYAAAAcABYAAAADAAUAAAAcABUAAAADAAUAAAAcABQAAAADAAQAAAAbABcAAAADAAYAAAAbABYAAAADAAUAAAAbABUAAAADAAUAAAAbABQAAAADAAQAAAAaABcAAAADAAYAAAAaABYAAAADAAUAAAAaABUAAAADAAUAAAAaABQAAAADAAQAAAAZABcAAAADAAYAAAAZABYAAAADAAUAAAAZABUAAAADAAUAAAAZABQAAAADAAQAAAAYABcAAAADAAYAAAAYABYAAAADAAUAAAAYABUAAAADAAUAAAAYABQAAAADAAQAAAAXABcAAAADAAYAAAAXABYAAAADAAUAAAAXABUAAAADAAUAAAAXABQAAAADAAQAAAAWABcAAAADAAYAAAAWABYAAAADAAUAAAAWABUAAAADAAUAAAAWABQAAAADAAQAAAAVABcAAAADAAYAAAAVABYAAAADAAUAAAAVABUAAAADAAUAAAAVABQAAAADAAQAAAAUABcAAAADAAYAAAAUABYAAAADAAUAAAAUABUAAAADAAUAAAAUABQAAAADAAQAAAATABcAAAADAAYAAAATABYAAAADAAUAAAATABUAAAADAAUAAAATABQAAAADAAQAAAASABcAAAADAAYAAAASABYAAAADAAUAAAASABUAAAADAAUAAAASABQAAAADAAQAAAARABcAAAADAAYAAAARABYAAAADAAUAAAARABUAAAADAAUAAAARABQAAAADAAQAAAAQABcAAAADAAYAAAAQABYAAAADAAUAAAAQABUAAAADAAUAAAAQABQAAAADAAQAAAAPABcAAAADAAYAAAAPABYAAAADAAUAAAAPABUAAAADAAUAAAAPABQAAAADAAQAAAAOABcAAAADAAYAAAAOABYAAAADAAUAAAAOABUAAAADAAUAAAAOABQAAAADAAQAAAANABcAAAADAAYAAAANABYAAAADAAUAAAANABUAAAADAAUAAAANABQAAAADAAQAAAAMABcAAAADAAYAAAAMABYAAAADAAUAAAAMABUAAAADAAUAAAAMABQAAAADAAQAAAALABcAAAADAAYAAAALABYAAAADAAUAAAALABUAAAADAAUAAAALABQAAAADAAQAAAAKABcAAAADAAYAAAAKABYAAAADAAUAAAAKABUAAAADAAUAAAAKABQAAAADAAQAAAAJABcAAAADAAYAAAAJABYAAAADAAUAAAAJABUAAAADAAUAAAAJABQAAAADAAQAAAAIABcAAAADAAYAAAAIABYAAAADAAUAAAAIABUAAAADAAUAAAAIABQAAAADAAQAAAAHABcAAAADAAYAAAAHABYAAAADAAUAAAAHABUAAAADAAUAAAAHABQAAAADAAQAAAAGABcAAAADAAYAAAAGABYAAAADAAUAAAAGABUAAAADAAUAAAAGABQAAAADAAQAAAAFABcAAAADAAYAAAAFABYAAAADAAUAAAAFABUAAAADAAUAAAAFABQAAAADAAQAAAAEABcAAAADAAYAAAAEABYAAAADAAUAAAAEABUAAAADAAUAAAAEABQAAAADAAQAAAADABcAAAADAAYAAAADABYAAAADAAUAAAADABUAAAADAAUAAAADABQAAAADAAQAAAACABcAAAADAAYAAAACABYAAAADAAUAAAACABUAAAADAAUAAAACABQAAAADAAQAAAABABcAAAADAAYAAAABABYAAAADAAUAAAABABUAAAADAAUAAAABABQAAAADAAQAAAAAABcAAAADAAYAAAAAABYAAAADAAUAAAAAABUAAAADAAUAAAAAABQAAAADAAQAAAD//xcAAAACAAYAAAD//xYAAAACAAUAAAD//xUAAAACAAUAAAD//xQAAAACAAQAAAA=")
+tile_set = SubResource("TileSet_nvrpt")
+
+[node name="Coin" parent="." unique_id=1249619984 instance=ExtResource("3_qpfou")]
 position = Vector2(608, 186)
-
-[node name="Walls" type="StaticBody2D" parent="." unique_id=29991375]
-
-[node name="left_wall" type="CollisionShape2D" parent="Walls" unique_id=27219143]
-position = Vector2(-25.5, 180)
-shape = SubResource("RectangleShape2D_dpg1s")
-
-[node name="right_wall" type="CollisionShape2D" parent="Walls" unique_id=706760463]
-position = Vector2(669, 180.125)
-shape = SubResource("RectangleShape2D_tsmxr")
