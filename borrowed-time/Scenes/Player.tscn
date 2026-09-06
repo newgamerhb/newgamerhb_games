@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctw5eyhn0vpc4" path="res://Scripts/Player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://cyf766vegt5k" path="res://Icons/player_icon.svg" id="2_kyqiw"]
+[ext_resource type="AudioStream" uid="uid://wrjgywfhw5p7" path="res://Audio/sfx/mixkit-player-jumping-in-a-video-game-2043.wav" id="3_gntrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
 size = Vector2(127, 129)
@@ -17,3 +18,8 @@ texture = ExtResource("2_kyqiw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1416180295]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_nvrpt")
+
+[node name="sfx_jump" type="AudioStreamPlayer" parent="." unique_id=1083929832]
+stream = ExtResource("3_gntrk")
+volume_db = -5.0
+pitch_scale = 0.7
