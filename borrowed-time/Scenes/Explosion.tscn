@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://b133ip5fyj15h"]
+
+[ext_resource type="Texture2D" uid="uid://bv07bwfb4h4b2" path="res://Icons/soldier-sprite-sheets-pixel-art/Soldier_1/Explosion.png" id="1_ix64a"]
+[ext_resource type="PackedScene" uid="uid://cwd30oorxxfxq" path="res://Scenes/Killzone.tscn" id="1_mbc3v"]
+
+[sub_resource type="GDScript" id="GDScript_ix64a"]
+script/source = "extends Node2D
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision: CollisionShape2D = $Killzone/CollisionShape2D
+
+# Frames where the collision should be ACTIVE (damaging)
+const ACTIVE_FRAMES := [2, 3, 4]
+
+func _ready() -> void:
+	sprite.frame_changed.connect(_on_frame_changed)
+	collision.disabled = true  # start disabled
+
+func _on_frame_changed() -> void:
+	collision.disabled = not (sprite.frame in ACTIVE_FRAMES)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcvtd"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pvja"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhy4c"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsf77"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3lrl"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbpma"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fpbg"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut2vh"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjecr"]
+atlas = ExtResource("1_ix64a")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix64a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcvtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pvja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhy4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsf77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3lrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbpma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fpbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut2vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjecr")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3lrl"]
+size = Vector2(64, 40)
+
+[sub_resource type="Animation" id="Animation_wcvtd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Killzone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5pvja"]
+resource_name = "explode"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Killzone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhy4c"]
+_data = {
+&"RESET": SubResource("Animation_wcvtd"),
+&"explode": SubResource("Animation_5pvja")
+}
+
+[node name="Explosion" type="Node2D" unique_id=1131349372]
+script = SubResource("GDScript_ix64a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1511734268]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_ix64a")
+
+[node name="Killzone" parent="." unique_id=1751416857 instance=ExtResource("1_mbc3v")]
+collision_layer = 3
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1719190837]
+position = Vector2(-2, -20)
+shape = SubResource("RectangleShape2D_s3lrl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=688200638]
+libraries/ = SubResource("AnimationLibrary_rhy4c")
+autoplay = &"explode"
+speed_scale = 0.5

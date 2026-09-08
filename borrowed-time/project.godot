@@ -52,11 +52,17 @@ stop={
 pointing/emulate_touch_from_mouse=true
 pointing/emulate_mouse_from_touch=false
 
+[layer_names]
+
+2d_physics/layer_1="Platforms"
+2d_physics/layer_2="Entities"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 textures/vram_compression/import_etc2_astc=true
