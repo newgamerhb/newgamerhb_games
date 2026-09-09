@@ -14,22 +14,22 @@ scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("2_hcax0")
 
 [node name="Left" type="TouchScreenButton" parent="." unique_id=194428517]
-position = Vector2(40.999996, 290.99997)
-scale = Vector2(0.05, 0.05)
+position = Vector2(33, 291)
+scale = Vector2(0.07, 0.07)
 texture_normal = ExtResource("1_21ub8")
 action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="." unique_id=1392522742]
-position = Vector2(176, 329.00003)
+position = Vector2(169, 347.00006)
 rotation = -3.1415925
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.07, 0.07)
 texture_normal = ExtResource("1_21ub8")
 action = "move_right"
 
 [node name="Jump" type="TouchScreenButton" parent="." unique_id=1184470755]
 position = Vector2(539, 288.99997)
 rotation = 1.5707964
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.07, 0.07)
 texture_normal = ExtResource("1_21ub8")
 action = "move_up"
 
