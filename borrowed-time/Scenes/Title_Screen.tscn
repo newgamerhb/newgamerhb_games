@@ -41,7 +41,7 @@ theme_override_constants/separation = 12
 
 [node name="Start_Button" type="Button" parent="VBoxContainer" unique_id=274809730]
 layout_mode = 2
-text = "START TIME"
+text = "Debug Level"
 
 [node name="Quit_Button" type="Button" parent="VBoxContainer" unique_id=485444037]
 layout_mode = 2

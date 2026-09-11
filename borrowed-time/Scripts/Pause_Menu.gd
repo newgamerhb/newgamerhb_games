@@ -34,6 +34,13 @@ func _notification(minimized: int) -> void:
 func _on_return_pressed() -> void:
 	unpause()
 
+# touch controls toggle
+func _on_button_toggled(toggled_on: bool) -> void:
+	var touch_controls := get_tree().get_first_node_in_group("HUD")
+	if touch_controls != null:
+		touch_controls.visible = toggled_on
+
+
 func _on_options_pressed() -> void:
 	options.text = "WIP" # temp
 
