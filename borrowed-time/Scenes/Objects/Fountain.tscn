@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dept5oui3rskv"]
+
+[ext_resource type="Texture2D" uid="uid://mylx5j5vdpol" path="res://Art/Levels/green-zone-tileset-pixel-art/4 Animated objects/Fountain.png" id="1_uu4dh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu4dh"]
+atlas = ExtResource("1_uu4dh")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lni6"]
+atlas = ExtResource("1_uu4dh")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnioi"]
+atlas = ExtResource("1_uu4dh")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq713"]
+atlas = ExtResource("1_uu4dh")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dpg1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu4dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lni6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq713")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
+size = Vector2(64, 14)
+
+[node name="Fountain" type="StaticBody2D" unique_id=811373676]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=272239583]
+sprite_frames = SubResource("SpriteFrames_dpg1s")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1299217333]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_nvrpt")

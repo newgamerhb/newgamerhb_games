@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://54d7io6sqtt3" path="res://Icons/Touch_Controls/movement.svg" id="1_21ub8"]
 [ext_resource type="Script" uid="uid://72iv0rimevi6" path="res://Scripts/Touch_Controls.gd" id="1_k1qis"]
 [ext_resource type="Texture2D" uid="uid://b0ywk7rwpcpfw" path="res://Icons/Touch_Controls/pause.svg" id="2_hcax0"]
+[ext_resource type="Texture2D" uid="uid://c55ywxqp5cxud" path="res://Icons/Touch_Controls/katana.svg" id="4_b6i0l"]
+[ext_resource type="Texture2D" uid="uid://dhs5qwj7k1osc" path="res://Icons/Touch_Controls/run.svg" id="4_kbqrc"]
 
 [node name="Touch_Controls" type="CanvasLayer" unique_id=289757081]
 script = ExtResource("1_k1qis")
@@ -33,6 +35,25 @@ scale = Vector2(0.07, 0.07)
 texture_normal = ExtResource("1_21ub8")
 action = "move_up"
 
+[node name="Attack" type="TouchScreenButton" parent="." unique_id=1945568301]
+position = Vector2(525, 200)
+scale = Vector2(0.07, 0.07)
+texture_normal = ExtResource("4_b6i0l")
+action = "attack"
+
+[node name="Run" type="Button" parent="." unique_id=1832678920]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -28.0
+offset_right = 848.0
+offset_bottom = 780.0
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+toggle_mode = true
+icon = ExtResource("4_kbqrc")
+flat = true
+
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="released" from="Left" to="." method="_on_left_released"]
@@ -40,3 +61,6 @@ action = "move_up"
 [connection signal="released" from="Right" to="." method="_on_right_released"]
 [connection signal="pressed" from="Jump" to="." method="_on_jump_pressed"]
 [connection signal="released" from="Jump" to="." method="_on_jump_released"]
+[connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
+[connection signal="released" from="Attack" to="." method="_on_attack_released"]
+[connection signal="toggled" from="Run" to="." method="_on_run_toggled"]
