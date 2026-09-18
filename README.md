@@ -1,2 +1,2 @@
 # newgamerhb_games
-## Borrowed Time
+[## Borrowed Time](https://github.com/newgamerhb/newgamerhb_games/releases/latest)
