@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://dfco2m365sat8"]
+
+[ext_resource type="Script" uid="uid://dbcqxhd2am36k" path="res://Scripts/Entities/Enemy_1.gd" id="1_amud0"]
+[ext_resource type="Texture2D" uid="uid://s8h7jew0ux2q" path="res://Art/my_sprites/enemy_1/idle.png" id="1_gly4h"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c5gxyriy7m1jq" path="res://Scenes/Animations/Enemy_1_animation_state_machine.tres" id="3_xdpsn"]
+[ext_resource type="Script" uid="uid://bsvbthk6hjpff" path="res://Scripts/Hurtbox.gd" id="4_m0ekt"]
+[ext_resource type="Script" uid="uid://dkwt072a3d22r" path="res://Scripts/Hitbox.gd" id="5_s1qgy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yoq75"]
+radius = 3.0
+height = 25.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gly4h"]
+atlas = ExtResource("1_gly4h")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ovy1"]
+atlas = ExtResource("1_gly4h")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amud0"]
+atlas = ExtResource("1_gly4h")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdpsn"]
+atlas = ExtResource("1_gly4h")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvrpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gly4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ovy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amud0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdpsn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gly4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6ovy1"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amud0"]
+_data = {
+&"RESET": SubResource("Animation_gly4h"),
+&"idle": SubResource("Animation_6ovy1")
+}
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_m0ekt"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r0m8l"]
+graph_offset = Vector2(-419, 42)
+nodes/Enemy_1_States/node = ExtResource("3_xdpsn")
+nodes/Enemy_1_States/position = Vector2(-160, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_m0ekt")
+nodes/TimeScale/position = Vector2(120, 100)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Enemy_1_States"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gly4h"]
+radius = 18.518518
+height = 96.296295
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ovy1"]
+size = Vector2(18.11111, 25.925924)
+
+[node name="enemy_1" type="CharacterBody2D" unique_id=1911375262]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_amud0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=814254472]
+position = Vector2(0, -12.5)
+shape = SubResource("CapsuleShape2D_yoq75")
+
+[node name="Sprite" type="Node2D" parent="." unique_id=1135642909]
+scale = Vector2(0.3, 0.3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite" unique_id=940895135]
+position = Vector2(0, -90)
+sprite_frames = SubResource("SpriteFrames_nvrpt")
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/AnimatedSprite2D" unique_id=1477974116]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_amud0")
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite/AnimatedSprite2D" unique_id=1109118666]
+active = false
+root_node = NodePath("../../..")
+tree_root = SubResource("AnimationNodeBlendTree_r0m8l")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 0.5
+
+[node name="Hurtbox" type="Area2D" parent="Sprite" unique_id=58004795]
+position = Vector2(0, -92.00001)
+scale = Vector2(0.90000004, 0.90000004)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_m0ekt")
+
+[node name="hurt" type="CollisionShape2D" parent="Sprite/Hurtbox" unique_id=2042253811]
+position = Vector2(0, 54.07409)
+shape = SubResource("CapsuleShape2D_gly4h")
+debug_color = Color(0.99440426, 0, 0.22992396, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="Sprite" unique_id=944880858 groups=["enemy_hitbox"]]
+position = Vector2(7.0000005, -92.00001)
+rotation = 1.5707964
+scale = Vector2(0.90000004, 0.90000004)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_s1qgy")
+
+[node name="hit" type="CollisionShape2D" parent="Sprite/Hitbox" unique_id=1880628412]
+position = Vector2(46.66669, 20.740742)
+shape = SubResource("RectangleShape2D_6ovy1")
+debug_color = Color(0.12509829, 0.64811, 0.044101216, 0.41960785)
+
+[connection signal="area_entered" from="Sprite/Hurtbox" to="." method="_on_hurtbox_area_entered"]

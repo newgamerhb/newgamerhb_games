@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0u8k8hl173jd" path="res://Art/Levels/green-zone-tileset-pixel-art/2 Background/Night/3.png" id="8_34y5i"]
 [ext_resource type="Texture2D" uid="uid://b42erl4g6emei" path="res://Art/Levels/green-zone-tileset-pixel-art/2 Background/Night/4.png" id="9_nlqrh"]
 [ext_resource type="Texture2D" uid="uid://3g017v4b6unq" path="res://Art/Levels/green-zone-tileset-pixel-art/2 Background/Night/5.png" id="10_8nmnw"]
+[ext_resource type="PackedScene" uid="uid://dfco2m365sat8" path="res://Scenes/Entities/enemy_1.tscn" id="11_nlqrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybqp2"]
 texture = ExtResource("4_qpfou")
@@ -554,6 +555,11 @@ tile_set = SubResource("TileSet_nvrpt")
 
 [node name="Fountain" parent="Objects" unique_id=1194481448 instance=ExtResource("5_34y5i")]
 position = Vector2(508, -52)
+
+[node name="Entities" type="Node" parent="." unique_id=1846324197]
+
+[node name="enemy_1" parent="Entities" unique_id=1911375262 instance=ExtResource("11_nlqrh")]
+position = Vector2(618, -31)
 
 [node name="Items" type="Node" parent="." unique_id=2002136706]
 

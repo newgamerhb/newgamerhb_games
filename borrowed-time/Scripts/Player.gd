@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite: Node2D = $Sprite
 @onready var animation_tree: AnimationTree = $Sprite/AnimatedSprite2D/AnimationTree
 @onready var attack_buffer_timer: Timer = $attack_buffer_timer
+@onready var hurtbox: Hurtbox = $Sprite/Hurtbox
 
 
 const FRICTION = 800.0
@@ -20,6 +21,12 @@ func _on_attack_buffer_timer_timeout() -> void:
 
 func _ready() -> void:
 	animation_tree.active = true
+	hurtbox.target_group = "enemy_hitbox"
+	hurtbox.hit_received.connect(_on_hit_received)
+
+func _on_hit_received(damage: int, _source: Hitbox) -> void:
+	print("Player hit for ", damage)
+	# reduce player health, trigger hurt animation, etc.
 
 
 func _physics_process(delta: float) -> void:

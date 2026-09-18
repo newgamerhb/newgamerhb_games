@@ -32,6 +32,8 @@ folder_colors={
 [global_group]
 
 HUD="for hud"
+player_hitbox="player damage area"
+enemy_hitbox="for all enemy"
 
 [input]
 
