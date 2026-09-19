@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 @onready var sfx_jump: AudioStreamPlayer = $sfx/sfx_jump
+@onready var sfx_sword_swing_1: AudioStreamPlayer = $sfx/sfx_sword_swing1
+@onready var sfx_sword_swing_2: AudioStreamPlayer = $sfx/sfx_sword_swing2
+@onready var sfx_sword_swing_3: AudioStreamPlayer = $sfx/sfx_sword_swing3
+
 @onready var sprite: Node2D = $Sprite
 @onready var animation_tree: AnimationTree = $Sprite/AnimatedSprite2D/AnimationTree
 @onready var attack_buffer_timer: Timer = $attack_buffer_timer
@@ -83,3 +87,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack_buffer = true
 		attack_buffer_timer.start()
+
+# ========== attackes ==========
+func on_attack_1() -> void:
+	sfx_sword_swing_1.play()
+
+func on_attack_2() -> void:
+	sfx_sword_swing_2.play()
+
+func on_attack_3() -> void:
+	sfx_sword_swing_3.play()

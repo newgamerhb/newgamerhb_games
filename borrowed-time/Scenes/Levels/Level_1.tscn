@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0u8k8hl173jd" path="res://Art/Levels/green-zone-tileset-pixel-art/2 Background/Night/3.png" id="8_34y5i"]
 [ext_resource type="Texture2D" uid="uid://b42erl4g6emei" path="res://Art/Levels/green-zone-tileset-pixel-art/2 Background/Night/4.png" id="9_nlqrh"]
 [ext_resource type="Texture2D" uid="uid://3g017v4b6unq" path="res://Art/Levels/green-zone-tileset-pixel-art/2 Background/Night/5.png" id="10_8nmnw"]
-[ext_resource type="PackedScene" uid="uid://dfco2m365sat8" path="res://Scenes/Entities/enemy_1.tscn" id="11_nlqrh"]
+[ext_resource type="Script" uid="uid://bd8fsoicxwkij" path="res://Scripts/temp/temp_summon_enemy_1.gd" id="12_8nmnw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybqp2"]
 texture = ExtResource("4_qpfou")
@@ -465,6 +465,8 @@ terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.5019608, 0.8980392, 0.2509804, 1)
 sources/0 = SubResource("TileSetAtlasSource_ybqp2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvrpt"]
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tsmxr"]
 
 [node name="Level_1" type="Node2D" unique_id=2047264345]
@@ -528,7 +530,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1152, 324)
 
-[node name="Player" parent="." unique_id=384428466 instance=ExtResource("1_q8yj7")]
+[node name="Player" parent="." unique_id=384428466 groups=["player"] instance=ExtResource("1_q8yj7")]
 position = Vector2(314, -93)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2039079040]
@@ -558,12 +560,37 @@ position = Vector2(508, -52)
 
 [node name="Entities" type="Node" parent="." unique_id=1846324197]
 
-[node name="enemy_1" parent="Entities" unique_id=1911375262 instance=ExtResource("11_nlqrh")]
-position = Vector2(618, -31)
-
 [node name="Items" type="Node" parent="." unique_id=2002136706]
 
 [node name="Events" type="Node" parent="." unique_id=1799476293]
+
+[node name="temp_summon_enemy_1" type="Area2D" parent="Events" unique_id=448252852]
+position = Vector2(508, -81)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("12_8nmnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Events/temp_summon_enemy_1" unique_id=1055156109]
+shape = SubResource("RectangleShape2D_nvrpt")
+debug_color = Color(0.8096219, 0.10499705, 0.9555313, 0.41960785)
+
+[node name="Marker2D" type="Marker2D" parent="Events/temp_summon_enemy_1" unique_id=938877843]
+position = Vector2(109, -9)
+
+[node name="Label" type="Label" parent="Events/temp_summon_enemy_1" unique_id=829939683]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -6.0
+offset_right = 17.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "Summon"
 
 [node name="Platforms" type="Node" parent="." unique_id=384942604]
 
@@ -574,3 +601,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1174932840]
 shape = SubResource("WorldBoundaryShape2D_tsmxr")
+
+[connection signal="body_entered" from="Events/temp_summon_enemy_1" to="Events/temp_summon_enemy_1" method="_on_body_entered"]

@@ -34,6 +34,7 @@ folder_colors={
 HUD="for hud"
 player_hitbox="player damage area"
 enemy_hitbox="for all enemy"
+player="just player"
 
 [input]
 
