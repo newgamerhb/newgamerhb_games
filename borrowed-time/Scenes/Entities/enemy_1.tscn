@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dbcqxhd2am36k" path="res://Scripts/Entities/Enemy_1.gd" id="1_amud0"]
 [ext_resource type="Texture2D" uid="uid://s8h7jew0ux2q" path="res://Art/my_sprites/enemy_1/idle.png" id="1_gly4h"]
+[ext_resource type="Shader" uid="uid://cx0ucxw61336w" path="res://Shaders/damage_flash.gdshader" id="2_jeyui"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c5gxyriy7m1jq" path="res://Scenes/Animations/Enemy_1_animation_state_machine.tres" id="3_xdpsn"]
 [ext_resource type="Script" uid="uid://bsvbthk6hjpff" path="res://Scripts/Hurtbox.gd" id="4_m0ekt"]
 [ext_resource type="Script" uid="uid://dkwt072a3d22r" path="res://Scripts/Hitbox.gd" id="5_s1qgy"]
+[ext_resource type="AudioStream" uid="uid://b72m3v0otp7uc" path="res://Audio/sfx/hit_swing_sword.wav" id="6_s1qgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yoq75"]
 radius = 3.0
@@ -15,6 +17,11 @@ bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0.29411766)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpg1s"]
 bg_color = Color(1, 0, 0.039215688, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5dpmu"]
+shader = ExtResource("2_jeyui")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gly4h"]
 atlas = ExtResource("1_gly4h")
@@ -157,6 +164,7 @@ show_percentage = false
 scale = Vector2(0.3, 0.3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite" unique_id=940895135]
+material = SubResource("ShaderMaterial_5dpmu")
 position = Vector2(0, -90)
 sprite_frames = SubResource("SpriteFrames_nvrpt")
 animation = &"idle"
@@ -173,12 +181,13 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 0.5
 
-[node name="Hurtbox" type="Area2D" parent="Sprite" unique_id=58004795]
+[node name="Hurtbox" type="Area2D" parent="Sprite" unique_id=58004795 node_paths=PackedStringArray("sprite")]
 position = Vector2(0, -92.00001)
 scale = Vector2(0.90000004, 0.90000004)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("4_m0ekt")
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="hurt" type="CollisionShape2D" parent="Sprite/Hurtbox" unique_id=2042253811]
 position = Vector2(0, 54.07409)
@@ -197,5 +206,10 @@ script = ExtResource("5_s1qgy")
 position = Vector2(46.66669, 20.740742)
 shape = SubResource("RectangleShape2D_6ovy1")
 debug_color = Color(0.12509829, 0.64811, 0.044101216, 0.41960785)
+
+[node name="sfx" type="Node2D" parent="." unique_id=1254326573]
+
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="sfx" unique_id=150655107]
+stream = ExtResource("6_s1qgy")
 
 [connection signal="area_entered" from="Sprite/Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $Sprite/AnimatedSprite2D/AnimationTree
 @onready var attack_buffer_timer: Timer = $attack_buffer_timer
 @onready var hurtbox: Hurtbox = $Sprite/Hurtbox
+@onready var ptc_running: GPUParticles2D = $Sprite/Particles/ptc_running
+
 
 
 const FRICTION = 800.0
@@ -42,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	jump = Input.is_action_just_pressed("move_up") and is_on_floor() and not attack_buffer
 	if jump:
 		velocity.y = JUMP_VELOCITY
+		sfx_jump.pitch_scale = randf_range(0.85 ,1.0)
 		sfx_jump.play()
 	
 	# Get the input direction and handle the movement/deceleration, -1, 0, 1
@@ -59,13 +62,14 @@ func _physics_process(delta: float) -> void:
 		
 		if direction:
 			if Input.is_action_pressed("run"):
+				# running
 				velocity.x = direction * MAX_RUN_SPEED
 			else:
+				# walking
 				velocity.x = direction * MAX_WALK_SPEED
 		else:
+			# idle
 			velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
-	
-	move_and_slide()
 	
 	
 	# ========== Animations ===========
@@ -73,7 +77,6 @@ func _physics_process(delta: float) -> void:
 	# blend space with velocity.x, walk-run
 	var speed: float = absf(velocity.x)
 	var speed_blend_value: float
-	
 	
 	if speed < 1.0:
 		speed_blend_value = -1.0
@@ -83,10 +86,18 @@ func _physics_process(delta: float) -> void:
 		speed_blend_value = lerpf(0.0, 1.0, clamp((speed - MAX_WALK_SPEED) / (MAX_RUN_SPEED - MAX_WALK_SPEED), 0.0, 1.0))
 	animation_tree.set("parameters/PlayerStates/move/blend_position", speed_blend_value)
 	
+	# Run particles
+	ptc_running.emitting = speed_blend_value > 0.5 and is_on_floor()
+	
 	# attack
 	if Input.is_action_just_pressed("attack"):
 		attack_buffer = true
 		attack_buffer_timer.start()
+	
+	move_and_slide()
+
+# ========== Particles ==========
+
 
 # ========== attackes ==========
 func on_attack_1() -> void:

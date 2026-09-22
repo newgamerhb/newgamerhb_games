@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var sfx_hit: AudioStreamPlayer2D = $sfx/sfx_hit
+
 @onready var hurtbox: Hurtbox = $Sprite/Hurtbox
 @onready var animation_tree: AnimationTree = $Sprite/AnimatedSprite2D/AnimationTree
 @onready var health_bar: ProgressBar = $Health_Bar
@@ -26,5 +28,9 @@ func _on_hit_received(damage: int, _source: Hitbox) -> void:
 	update_health_bar()
 	print("Enemy hit for ", damage, ", health: ", health)
 	
+	sfx_hit.pitch_scale = randf_range(0.9, 1.1)
+	sfx_hit.play()
+	
 	if health <= 0:
 		queue_free()
+	
