@@ -15,7 +15,7 @@ var current_panel: String = "menu"
 @onready var current_menu_label: Label = $Pause_Menu_BG/Current_Menu_Label
 @onready var back: Button = $Pause_Menu_BG/Back
 # ======== Menu ========
-@onready var options: Button = $Pause_Menu_BG/MarginContainer/Menu/Options
+@onready var options: Button = $Pause_Menu_BG/MarginContainer/Main_Menu/Options
 # ======== Options ========
 @onready var controls: Button = $Pause_Menu_BG/MarginContainer/Options/Controls
 @onready var video: Button = $Pause_Menu_BG/MarginContainer/Options/Video

@@ -1,14 +1,23 @@
 [gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://c5gxyriy7m1jq"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1hvj"]
+animation = &"dead"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xdpsn"]
 animation = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m0ekt"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r5geq"]
+advance_mode = 2
+advance_expression = "isDead"
+
 [resource]
 states/Start/position = Vector2(225, 100)
+states/dead/node = SubResource("AnimationNodeAnimation_i1hvj")
+states/dead/position = Vector2(589, 100)
 states/idle/node = SubResource("AnimationNodeAnimation_xdpsn")
 states/idle/position = Vector2(372, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_m0ekt")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_m0ekt"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_r5geq")]
 graph_offset = Vector2(-144, -8)
