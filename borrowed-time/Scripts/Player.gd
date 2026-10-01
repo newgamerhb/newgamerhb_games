@@ -34,12 +34,7 @@ func _on_hit_received(damage: int, _source: Hitbox) -> void:
 	print("Player hit for ", damage)
 	# reduce player health, trigger hurt animation, etc.
 
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
+func handle_movement(delta) -> void:
 	# Handle jump.
 	jump = Input.is_action_just_pressed("move_up") and is_on_floor() and not attack_buffer
 	if jump:
@@ -70,6 +65,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			# idle
 			velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	handle_movement(delta)
 	
 	
 	# ========== Animations ===========

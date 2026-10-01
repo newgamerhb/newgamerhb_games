@@ -2,6 +2,7 @@ extends Area2D
 class_name Hurtbox
 
 signal hit_received(damage: int, source: Hitbox)
+signal knockback_applied(vector: Vector2)
 
 @export var target_group: String = "hitbox"  # generic; filter further via owner if needed
 
@@ -32,11 +33,20 @@ func _on_area_exited(area: Area2D) -> void:
 		overlapping_hitboxes.erase(area)
 		already_hit.erase(area)
 
+@export var body: CharacterBody2D 
+
+func _apply_knockback(hitbox: Hitbox) -> void:
+	if body == null:
+		return
+	var knockback := hitbox.get_knockback_vector(body.global_position)
+	knockback_applied.emit(knockback)
+
 func _physics_process(_delta: float) -> void:
 	for hitbox: Hitbox in overlapping_hitboxes:
 		if hitbox.is_active() and hitbox not in already_hit:
 			already_hit.append(hitbox)
 			flash_white()
+			_apply_knockback(hitbox)
 			hit_received.emit(hitbox.damage, hitbox)
 
 

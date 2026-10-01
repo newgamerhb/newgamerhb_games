@@ -12,3 +12,7 @@ func _ready() -> void:
 
 func is_active() -> bool:
 	return not collision_shape.disabled
+
+func get_knockback_vector(target_position: Vector2) -> Vector2:
+	var direction := (target_position - global_position).normalized()
+	return direction * knockback_force
